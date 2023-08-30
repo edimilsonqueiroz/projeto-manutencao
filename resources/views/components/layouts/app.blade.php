@@ -7,7 +7,7 @@
         <title>{{ $title ?? 'Page Title' }}</title>
         @vite('resources/css/app.css')
     </head>
-    <body>
+    <body class="w-screen h-screen overflow-x-hidden">
         {{ $slot }}
     </body>
 </html>
