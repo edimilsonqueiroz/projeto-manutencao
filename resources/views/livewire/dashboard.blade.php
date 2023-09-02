@@ -1,5 +1,7 @@
 <div class="w-full h-full">
     @include('components/header')
-        <div>Painel de controle</div>
+
+    Content
+           
     @include('components/footer')
 </div>
