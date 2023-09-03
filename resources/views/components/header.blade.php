@@ -11,14 +11,14 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
                     </svg>
                 </button>
-                <button x-on:click="openLogout = !openLogout" class="flex">
+                <button x-on:click="openLogout = true" class="flex">
                     <span class="mr-1">Edimilson Francisco de Queiroz</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                 </button>
             </header>
-            <div x-show="openLogout" :class="openLogout ? 'flex' : 'hidden'" @click.outside="openLogout = false" class="fixed  rounded-md top-12 right-16 w-32 h-20 z-20 bg-slate-200">
+            <div x-show="openLogout"  @click.outside="openLogout = false" class="fixed  rounded-md top-12 right-16 w-32 h-20 z-20 bg-slate-200">
                <ul class="h-full w-full">
                     <li class="hover:bg-slate-300 w-full rounded-tl-md rounded-tr-md py-2 px-2"><a class="w-full" href="/dashboard/profile">Perfil</a></li>
                     <li class="hover:bg-slate-300 w-full rounded-bl-md rounded-br-md py-2 px-2"><a class="w-full" href="/dashboard/logout">Sair do Sistema</a></li>
