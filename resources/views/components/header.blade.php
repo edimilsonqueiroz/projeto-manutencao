@@ -18,7 +18,10 @@
                     </svg>
                 </button>
             </header>
-            <div x-show="openLogout" class="fixed top-12 right-16 w-28 h-20 z-20 bg-slate-400">
-                Modal Logout
+            <div x-show="openLogout" :class="openLogout ? 'flex' : 'hidden'" @click.outside="openLogout = false" class="fixed  rounded-md top-12 right-16 w-32 h-20 z-20 bg-slate-200">
+               <ul class="h-full w-full">
+                    <li class="hover:bg-slate-300 w-full rounded-tl-md rounded-tr-md py-2 px-2"><a class="w-full" href="/dashboard/profile">Perfil</a></li>
+                    <li class="hover:bg-slate-300 w-full rounded-bl-md rounded-br-md py-2 px-2"><a class="w-full" href="/dashboard/logout">Sair do Sistema</a></li>
+               </ul>
             </div>
             <div class="bg-gray-300 w-full p-3 py-5  flex flex-1 overflow-y-auto">
