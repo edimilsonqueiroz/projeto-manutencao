@@ -9,6 +9,7 @@ use App\Livewire\Equipments;
 use App\Livewire\Maintenance;
 
 Route::get('/', Login::class)->name('login');
+Route::get('/dashboard/logout', [Login::class, 'logout'])->name('logout');
 Route::get('/dashboard', Dashboard::class)->name('dashboard');
 Route::get('/dashboard/profile', Profile::class)->name('profile');
 Route::get('/dashboard/users', User::class)->name('users');
