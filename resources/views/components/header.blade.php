@@ -1,8 +1,8 @@
 <div class="w-full h-full">
     <div x-data="{openSidebar: true}" class="w-full flex h-full">
         <div x-transition  :class="{'translate-x-0': !openSidebar}" class="w-64 bg-slate-600 h-full transform transition ease-in-out flex flex-col fixed left-0 top-0 bottom-0 max-h-full md:fixed z-30 duration-200 -translate-x-full md:-translate-x-0">
-            <div class="w-full h-20">
-
+            <div class="w-full h-20 flex items-center justify-center text-gray-100 font-semibold">
+                <h1>GESTÃO DE PATRIMÔNIO</h1>
             </div>
             <nav class="flex-1 bg-slate-500 py-5 w-full overflow-y-auto">
                 <ul class="w-full px-5 text-gray-100 text-lg font-semibold">
@@ -36,18 +36,29 @@
                     </li>
                 </ul>
             </nav>
-            <div class="w-full h-20 flex items-center font-semibold text-gray-100 text-lg justify-center">
+            <div x-data="{openModal: false}" class="w-full h-20 flex items-center font-semibold text-gray-100 text-lg justify-center">
                 <button class="md:hidden w-full flex items-center justify-center" x-on:click="openSidebar = true">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
                     </svg>
                 </button>
-                <button class="hidden md:flex">
+                <button @click="openModal = true" class="hidden w-full md:flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                     </svg>
-
                 </button>
+
+                <div x-show="openModal"  class="fixed shadow left-64 ml-2 bottom-2 hidden md:flex z-20 rounded-md w-64 h-28 items-center font-normal flex-col justify-center text-gray-600 bg-slate-200" @click.outside="openModal = false">
+                    <div class="h-5"></div>
+                    <div class="text-center w-full py-2">
+                        Deseja sair do sistema?
+                    </div>
+                    <div class="flex items-center justify-end w-full px-2">
+                        <button class="mr-2 bg-slate-500 rounded-md px-3 text-gray-100" @click="openModal = false">Fechar</button>
+                        <a href="/dashboard/logout">Ok</a>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div x-data="openLogout" class="flex-1 h-full flex flex-col md:ml-64">
@@ -70,4 +81,4 @@
                     <li class="hover:bg-slate-300 w-full flex rounded-bl-md rounded-br-md py-2 px-2"><a class="w-full" href="/dashboard/logout">Sair do Sistema</a></li>
                </ul>
             </div>
-            <div class="bg-gray-300 w-full p-3 py-5  flex flex-1 overflow-y-auto">
+            <div class="bg-gray-300 w-full h-full p-3 py-5  flex flex-1 overflow-y-auto">
