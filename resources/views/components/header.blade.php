@@ -42,24 +42,29 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
                     </svg>
                 </button>
-                <button class="hidden md:flex">Sair</button>
+                <button class="hidden md:flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                    </svg>
+
+                </button>
             </div>
         </div>
-        <div x-data="{openLogout: false}" class="flex-1 h-full flex flex-col md:ml-64">
+        <div x-data="openLogout" class="flex-1 h-full flex flex-col md:ml-64">
             <header class="bg-gray-50 h-16 md:px-3 px-2 shadow flex items-center justify-between">
                 <button x-on:click="openSidebar = false">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
                     </svg>
                 </button>
-                <button x-on:click="openLogout = true" class="flex">
+                <button @click="toggle" class="flex">
                     <span class="mr-1">Edimilson Francisco de Queiroz</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                 </button>
             </header>
-            <div x-show="openLogout"  @click.outside="openLogout = false" class="fixed  rounded-md top-12 right-16 w-32 h-20 z-20 bg-slate-200">
+            <div id="logout" x-show="open"  @click.outside="open = false" class="fixed hidden rounded-md top-12 right-16 w-32 h-20 z-20 bg-slate-200">
                <ul class="h-full w-full">
                     <li class="hover:bg-slate-300 w-full flex rounded-tl-md rounded-tr-md py-2 px-2"><a class="w-full" href="/dashboard/profile">Perfil</a></li>
                     <li class="hover:bg-slate-300 w-full flex rounded-bl-md rounded-br-md py-2 px-2"><a class="w-full" href="/dashboard/logout">Sair do Sistema</a></li>
